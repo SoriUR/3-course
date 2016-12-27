@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@//yurasbd.ctkaxxigybdq.us-west-2.rds.amazonaws.com:1521/ORCL</property>
+        <property name="hibernate.connection.username">yura_sbd</property>
+        <property name="hibernate.connection.password">yura_sbd</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.default_schema">YURA_SBD</property>
+        <property name="show_sql">true</property>
+        <mapping class="kur.L2AnimalEntity"/>
+        <mapping class="kur.L2AnimalClassEntity"/>
+        <mapping class="kur.L2AnimalTypeEntity"/>
+        <mapping class="kur.L2AviaryEntity"/>
+        <mapping class="kur.L2AviaryStaffEntity"/>
+        <mapping class="kur.L2AviaryTypeEntity"/>
+        <mapping class="kur.L2FoodEntity"/>
+        <mapping class="kur.L2ImageEntity"/>
+        <mapping class="kur.L2StaffEntity"/>
+        <mapping class="kur.L2StaffJobEntity"/>
+        <mapping class="kur.L2ZooPartEntity"/>
+    </session-factory>
+</hibernate-configuration>
+
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="sessionFactory">
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>-->
+        <!--<property name="connection.driver_class">com.oracle.jdbc.driver.OracleDriver</property>-->
+       <!-- <property name="connection.url">jdbc:oracle:thin:@//yurasbd.ctkaxxigybdq.us-west-2.rds.amazonaws.com:1521/ORCL</property>
+        <mapping class="kur.L2AnimalEntity"/>
+        <mapping class="kur.L2AnimalClassEntity"/>
+        <mapping class="kur.L2AnimalTypeEntity"/>
+        <mapping class="kur.L2AviaryEntity"/>
+        <mapping class="kur.L2AviaryStaffEntity"/>
+        <mapping class="kur.L2AviaryTypeEntity"/>
+        <mapping class="kur.L2FoodEntity"/>
+        <mapping class="kur.L2ImageEntity"/>
+        <mapping class="kur.L2StaffEntity"/>
+        <mapping class="kur.L2StaffJobEntity"/>
+        <mapping class="kur.L2ZooPartEntity"/>
+
+    </session-factory>
+</hibernate-configuration>-->

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4118194786">
+    <data-source source="LOCAL" name="Oracle - @yurasbd.ctkaxxigybdq.us-west-2.rds.amazonaws.com" uuid="b50cb390-34b1-42c2-95b4-ec587eb677ef">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@//yurasbd.ctkaxxigybdq.us-west-2.rds.amazonaws.com:1521/ORCL</jdbc-url>
+    </data-source>
+  </component>
+</project>

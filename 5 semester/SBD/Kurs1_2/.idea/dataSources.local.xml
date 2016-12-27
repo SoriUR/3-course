@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Oracle - @yurasbd.ctkaxxigybdq.us-west-2.rds.amazonaws.com" uuid="b50cb390-34b1-42c2-95b4-ec587eb677ef">
+      <secret-storage>master_key</secret-storage>
+      <user-name>yura_sbd</user-name>
+    </data-source>
+  </component>
+</project>

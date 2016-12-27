@@ -1,0 +1,75 @@
+﻿cmn_gates STORAGE 9;
+cmn_entrance STORAGE 2;
+vip_reg STORAGE 3;
+guests_reg STORAGE 12	
+
+; СТАФФ
+GENERATE (Exponential(1,0,72)),,,,3
+STAFF_IN_QUEUE QUEUE staff_q_in
+SEIZE staff_gates
+DEPART staff_q_in
+ADVANCE 9
+RELEASE staff_gates
+TRANSFER 0.03,,EXIT_GATES
+TRANSFER 0.2062,,STAFF_IN_QUEUE
+QUEUE cmn_q_entrance
+ENTER cmn_entrance
+DEPART cmn_q_entrance
+ADVANCE 5
+LEAVE cmn_entrance
+TERMINATE
+
+
+; VIP
+GENERATE (Exponential(5,0,11)),,,,2
+VIP_IN_QUEUE QUEUE cmn_q_in
+ENTER cmn_gates
+DEPART cmn_q_in
+ADVANCE 25
+LEAVE cmn_gates
+TRANSFER 0.03,,EXIT_GATES
+TRANSFER 0.2062,,VIP_IN_QUEUE
+QUEUE vip_q_reg
+ENTER vip_reg
+DEPART vip_q_reg
+ADVANCE 30
+LEAVE vip_reg
+TRANSFER 30,,EXIT_GATES
+QUEUE cmn_q_entrance
+ENTER cmn_entrance
+DEPART cmn_q_entrance
+ADVANCE 5
+LEAVE cmn_entrance
+TERMINATE	
+
+
+; ГОСТИ
+GENERATE (Exponential(9,0,5)),,,,1
+GUESTS_IN_QUEUE QUEUE cmn_q_in
+ENTER cmn_gates
+DEPART cmn_q_in
+ADVANCE 25
+LEAVE cmn_gates
+TRANSFER 0.03,,EXIT_GATES
+TRANSFER 0.2062,,GUESTS_IN_QUEUE
+QUEUE guests_q_reg
+ENTER guests_reg
+DEPART guests_q_reg
+ADVANCE 60
+LEAVE guests_reg
+TRANSFER 0.03,,EXIT_GATES
+QUEUE cmn_q_entrance
+ENTER cmn_entrance
+DEPART cmn_q_entrance
+ADVANCE 5
+LEAVE cmn_entrance
+TERMINATE
+
+EXIT_GATES TERMINATE
+
+
+
+;1 день
+GENERATE 36000
+TERMINATE 1
+START 1

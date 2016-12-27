@@ -1,0 +1,85 @@
+$TITLE(LAB1_1)
+ 
+XSEG AT 70
+    RES_STR: ds 50
+ 
+CSEG AT 0
+	
+    JMP START
+    STR_A: DB "25,82", 00h
+	STR_B: DB "77,33", 001h
+ 
+START:
+    CLR A
+    MOV R1, #0 //LEN OF STR_A
+	MOV R0, #0 //ITERATOR
+COUNT_LENGTH_STR:
+	MOV DPTR,#STR_A
+	MOV A, r0
+	MOVC A,@A+DPTR
+	JZ STR_IS_COUNTED
+	INC R0
+	AJMP COUNT_LENGTH_STR
+STR_IS_COUNTED:
+	MOV A, R0
+	MOV R2, A //cycle length
+	MOV R1, #RES_STR
+	
+	MOV A, R1
+	ADD A, R0
+	MOV R1, A
+	DEC R0	
+	
+	MOV R3,#0 //additional 1
+	MOV R4,#0 //buffer for str_a char
+START_SUM:
+	MOV DPTR,#STR_A
+	MOV A, r0
+	MOVC A,@A+DPTR
+	MOV R4, A 
+	MOV B, #2CH
+	SUBB A, B
+	JNZ NOT_A_POINT
+	
+	ADD A,B
+	MOVX @R1,A // write point
+	AJMP CYCLE_SETTINGS
+NOT_A_POINT:	
+	MOV DPTR,#STR_B
+	MOV A, r0
+	MOVC A,@A+DPTr
+	ADD A, R4 
+	ADD A, R3
+	MOV R4, A  //SUM IS SAVED
+	MOV B, #69H
+	SUBB A, B
+	JC LESS_THEN_10
+	MOV R3, #1
+	MOV B, #1H
+	SUBB A,B
+	ADD A,#30H
+	MOVX @R1,A //write more then 10
+	AJMP CYCLE_SETTINGS
+LESS_THEN_10:
+	MOV R3, #0
+	MOV A, R4
+	SUBB A,#30H
+	MOVX @R1,A //write less then 10
+	AJMP CYCLE_SETTINGS
+CYCLE_SETTINGS:
+	DEC R0
+	DEC R2
+	DEC R1
+	MOV A, R2
+	JNZ START_SUM
+
+	MOV A, R3
+	JZ END_PROG
+	MOVX @R1,A //write 1
+END_PROG:
+    MOV r0, #RES_STR
+    INC r0
+    INC r0
+    NOP
+    JMP $
+END
